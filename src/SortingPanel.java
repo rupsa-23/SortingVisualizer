@@ -45,7 +45,7 @@ public class SortingPanel extends JPanel implements ActionListener {
         if (array == null) return;
         int width = getWidth() / array.length;
         for (int i = 0; i < array.length; i++) {
-            g.setColor(Color.BLUE);
+            g.setColor(Color.PINK);
             g.fillRect(i * width, getHeight() - array[i], width, array[i]);
         }
     }
@@ -60,6 +60,9 @@ public class SortingPanel extends JPanel implements ActionListener {
                     break;
                 case "Selection Sort":
                     SortAlgorithm.selectionSort(array, this);
+                    break;
+                case "Insertion Sort":
+                    SortAlgorithm.insertionSort(array,this);
                     break;
             }
         }).start();
