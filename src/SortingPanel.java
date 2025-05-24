@@ -20,6 +20,7 @@ public class SortingPanel extends JPanel implements ActionListener {
     public SortingPanel() {
         this.setLayout(new BorderLayout());
         JPanel topPanel = new JPanel();
+        topPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
 
         algorithmBox = new JComboBox<>(algorithms);
         //this.add(algorithmBox);
@@ -27,21 +28,21 @@ public class SortingPanel extends JPanel implements ActionListener {
 
         startBtn = new JButton("Start");
         startBtn.setFocusable(false);
-        startBtn.setBackground(new Color(0,0,0,0));
-        startBtn.setBorderPainted(false);
+//        startBtn.setBackground(new Color(0,0,0,0));
+//        startBtn.setBorderPainted(false);
 
 
         stopBtn = new JButton("Stop");
         stopBtn.setFocusable(false);
-        stopBtn.setBackground(new Color(0,0,0,0));
-        stopBtn.setBorderPainted(false);
+//        stopBtn.setBackground(new Color(0,0,0,0));
+//        stopBtn.setBorderPainted(false);
 
 
         randomizeBtn = new JButton("Randomize");
         randomizeBtn.setFocusable(false);
         //randomizeBtn.setHorizontalTextPosition(SwingConstants.CENTER);
-        randomizeBtn.setBackground(new Color(0,0,0,0));
-        randomizeBtn.setBorderPainted(false);
+//        randomizeBtn.setBackground(new Color(0,0,0,0));
+//        randomizeBtn.setBorderPainted(false);
         //randomizeBtn.setBorder(BorderFactory.createCompoundBorder());
         //randomizeBtn.setFont(new Font("Calibri",Font.BOLD,16));
 
@@ -77,7 +78,8 @@ public class SortingPanel extends JPanel implements ActionListener {
         if (array == null) return;
         int width = getWidth() / array.length;
         for (int i = 0; i < array.length; i++) {
-            g.setColor(Color.PINK);
+            float hue=(float) array[i]/150f;
+            g.setColor(Color.getHSBColor(hue,1.0f,0.8f));
             g.fillRect(i * width, getHeight() - array[i], width, array[i]);
         }
     }
